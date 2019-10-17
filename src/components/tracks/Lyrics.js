@@ -4,7 +4,7 @@ import { getLyric } from "../../actions/lyric";
 import Spinner from "../spinner/Spinner";
 import { Link } from "react-router-dom";
 
-const Lyrics = ({ match, getLyric, lyrics: { lyrics, fetching, fetched } }) => {
+const Lyrics = ({ match, getLyric, lyrics: { lyrics, fetching } }) => {
   useEffect(() => {
     const fetchLyric = async () => {
       await getLyric(match.params.id);
@@ -12,11 +12,6 @@ const Lyrics = ({ match, getLyric, lyrics: { lyrics, fetching, fetched } }) => {
 
     fetchLyric();
   }, [getLyric]);
-
-  console.log(fetching);
-  console.log(fetched);
-
-  console.log(lyrics);
 
   return (
     <>

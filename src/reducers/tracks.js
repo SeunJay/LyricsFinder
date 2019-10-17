@@ -2,7 +2,7 @@ import { GET_TRACKS_FULFILLED, GET_TRACKS_PENDING, GET_TRACKS_REJECTED } from ".
 
 export const initialState = {
   trackList: [],
-  heading: "Top 10 tracks",
+  heading: "",
   fetching: false,
   fetched: false,
   error: {}
@@ -20,6 +20,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         trackList: payload,
+        heading: "Top 10 tracks",
         fetching: false,
         fetched: true
       };

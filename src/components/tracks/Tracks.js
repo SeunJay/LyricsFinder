@@ -19,8 +19,9 @@ const Tracks = ({
 
   return (
     <>
-      {fetching && <Spinner />}
-      {fetched && (
+      {fetching ? (
+        <Spinner />
+      ) : (
         <>
           <h3 className="text-center mb-5">{heading}</h3>
           <div className="row">

@@ -1,22 +1,10 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import { getTracks } from "../../actions/tracks";
+import React from "react";
 import Track from "./Track";
 import Spinner from "../spinner/Spinner";
 
 const Tracks = ({
-  tracks: { trackList, fetching, fetched, heading },
-  getTracks
+  tracks: { trackList, fetching, heading },
 }) => {
-  useEffect(() => {
-    const fetchTracks = async () => {
-      await getTracks();
-    };
-
-    fetchTracks();
-  }, [getTracks]);
-
-
   return (
     <>
       {fetching ? (
@@ -35,13 +23,4 @@ const Tracks = ({
   );
 };
 
-const mapStateToProps = ({ tracks }) => {
-  return {
-    tracks
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  { getTracks }
-)(Tracks);
+export default Tracks;
